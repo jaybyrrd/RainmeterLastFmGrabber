@@ -60,7 +60,7 @@ namespace lastFm.DesktopApp
                                 throw new ArgumentOutOfRangeException();
                         }
                     }
-                    catch (IOException ex)
+                    catch (IOException _)
                     {
                         MessageBox.Show(@"Couldn't write the file! Do you have permission to write to: " +
                                         UserSettings.OutputDirectory + @"\\" + UserSettings.OutputFileName);
@@ -132,6 +132,34 @@ namespace lastFm.DesktopApp
         {
             Pause.Text = IsPaused ? "Pause" : "Unpause";
             IsPaused = !IsPaused;
+        }
+
+
+
+        private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Show();
+            notifyIcon.Visible = false;
+            ShowInTaskbar = true;
+        }
+
+        private void LastFmRetrieverForm_Resize(object sender, EventArgs e)
+        {
+            if (WindowState != FormWindowState.Minimized) return;
+            Hide();
+            notifyIcon.Visible = true;
+            ShowInTaskbar = false;
+        }
+
+        private void PauseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pauseToolStripMenuItem.Text = IsPaused ? "Pause" : "Unpause";
+            IsPaused = !IsPaused;
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
