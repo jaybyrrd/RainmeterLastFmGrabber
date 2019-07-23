@@ -19,6 +19,8 @@ App Running on Your Desktop -> My Lambda Function -> Last.fm API
 
 The app simply polls my API every 5 seconds to see get the latest of your most recently played music. Down the line, I may add support for downloading the cover image and saving the cover file, for now this will do. If you pause the application it will simply check every three seconds to see if you have unpaused.
 
+It currently creates 3 files. A File with the format you provided named as you wish, artist.txt, song.txt, album.txt.
+
 ## Future Plans
 
 Probably just add the ability to download the cover image. Last.fm doesn't have as many good cover images, so maybe will query spotify for this info instead. Not sure yet ¯\\_(ツ)_/¯
